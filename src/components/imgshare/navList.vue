@@ -41,6 +41,7 @@
 
     export default {
         data:function () {
+            /*初始化flag来判断显示哪个组件*/
             return {
                 flag1:true,
                 flag2:false,
@@ -55,17 +56,19 @@
             "list4":list4
         },
         mounted(){
+            /*设置点击的效果*/
             $('.mui-control-item').click(function () {
                 $(this).css('color','#FD4000').siblings().css('color','#fff');
             })
         },
         methods:{
             flagChange(){
+                //先将左右组件都隐藏
                 this.flag1 = this.flag2 = this.flag3 = this.flag4 = false;
                 var that = this;
-                //this.$store.commit('increment');
-                //console.log(this.$store.state.count);
+
                 $('.mui-control-item').click(function () {
+                    /*判断是哪个组件该显示出来*/
                     var index = parseInt($(this).index());
                     if(index === 0){
                         that.flag1 = true
@@ -110,13 +113,14 @@
         transition: all 0.5s ease;
     }
 
-
+    /*设置页面高度*/
     list1{
         height: 660px;
     }
     .mui-segmented-control.mui-segmented-control-inverted .mui-control-item:first-child{
         color: #FD4000;
     }
+    /*设置图片大小*/
     .contentImg{
         height: 660px;
         overflow: auto;
@@ -127,6 +131,8 @@
         background-color: #444444;
         color: #fff;
     }
+
+    /*设置图片里的简介居中及样式*/
     .box>ul>li{
         position: relative;
         list-style: none!important;

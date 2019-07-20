@@ -77,25 +77,26 @@
     }
 
     /*底部*/
-    .footer{
-        height: 70px!important;
-        width: 499px !important;
-        margin: 0 auto !important;
-        position: absolute!important;
-        background-color: #313131!important;
-        box-shadow:none!important;
-        border-top:1px solid #BBBBBB!important;
+    .app-content>.mui-bar{
+        height: 70px;
+        width: 499px;
+        margin: 0 auto;
+        position: absolute;
+        background-color: #313131;
+        box-shadow:none;
+        border-top:1px solid #BBBBBB;
     }
-
-    /*轮播图*/
-    .mui-tab-item{
-        color: #fff!important;
-        font-size: 30px!important;
+    /*六宫格样式*/
+    .app-content>.mui-bar>.mui-tab-item{
+        color: #fff;
+        font-size: 30px;
     }
-    .mui-active{
-        color: #FF4248!important;
+    /*底部显示当前页面颜色*/
+    .app-content>.mui-bar-tab .mui-tab-item.mui-active{
+        color: #FF4248;
     }
-    .mui-tab-label{
-        font-size: 14px!important;
+    /*底部字体颜色*/
+    .app-content .mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label{
+        font-size: 14px;
     }
 </style>

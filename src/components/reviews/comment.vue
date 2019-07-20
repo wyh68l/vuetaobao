@@ -33,7 +33,7 @@ export default {
       message:'',
       name:'匿名用户',
       id:this.$route.params.id,
-      date:new Date(),
+      date:new Date(),//当前时间
       comments: [] // 所有的评论数据
     };
   },
@@ -43,10 +43,12 @@ export default {
   methods: {
     getComments() {
       //获取评论
+      /*判断本地存储中是否有值，有则直接取出渲染页面*/
       if(sessionStorage.getItem('data')) {
         var data = JSON.parse(sessionStorage.getItem('data'));
         this.comments = data;
       }else{
+        /*没有则向服务端发起请求，获取数据接口*/
         this.$http
                 .get("http://localhost:8080/src/components/reviews/review.json")
                 .then(result => {
@@ -54,11 +56,11 @@ export default {
 
                     this.comments = result.body.reviews;
                     var id = this.id;
-
+                    //获取到与id相匹配的数组
                     var getid = this.comments.find(function (item) {
                       return item.id === id
                     });
-
+                    //将内容添加到数组
                     this.comments = getid.data;
 
                   } else {
